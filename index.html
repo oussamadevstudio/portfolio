@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Document</title>
+    <script src="sideBar.js"></script>
 </head>
 <body>
 
@@ -20,17 +21,27 @@
                         <img src="assets/logo-studio.png" alt="O.studio" class="logo">
                     
                         <nav>
-                            <ul>
+                            <ul class="sidebar">
+                                <li onclick=hideSideBar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
                                 <li><a href="#home">home</a></li>
                                 <li><a href="#services">services</a></li>
                                 <li><a href="#aboutus">about us</a></li>
+                            </ul>
+
+                            <ul>
+                                <li><a class="showOnLap" href="#home">home</a></li>
+                                <li><a class="showOnLap" href="#services">services</a></li>
+                                <li><a class="showOnLap" href="#aboutus">about us</a></li>
+                                
                             </ul>
                         </nav>
 
                         
                     
                     
-                        <button><a href="#contactus">contact us</a></button>
+                        <button class="showOnLap"><a href="#contactus">contact us</a></button>
+
+                        <a href="#" onclick=showSideBar() class="showOnMobile"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a>
 
                     
                     

@@ -36,21 +36,22 @@ html{
 
 h1{
     color: #f4f8ff;
-    font-size: 4rem;
+    font-size: 6.4vw;
 
     text-align: center;
 }
 
+
 h2{
     color: #dce6ff;
-    font-size: 2rem;
+    font-size: 3.2vw;
 
     text-align: center;
 }
 
 h3{
     color: #bfc9e6;
-    font-size: 1.25rem;
+    font-size: 1.8vw;
     line-height: 1.4;
 
     text-align: center;
@@ -60,7 +61,7 @@ h3{
 p{
     font-family: "Poppins", sans-serif;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 1.07vw;
 }
 
 
@@ -69,19 +70,26 @@ p{
 
 a{
     text-decoration: none;
-    color: #5a3b77;
+    color: #1b1b1b;
     transition: all 0.4s ease;
     letter-spacing: 0.5px;
     font-weight: 700;
+    
 
 }
 
 a:hover{
-    color: #4e899b;
+    color: #abcbd5;
 
 }
 
+a svg path{
+    fill: black;
+}
 
+a svg path:hover{
+    fill: #abcbd5;
+}
 
 li{
     list-style: none;
@@ -91,7 +99,7 @@ button{
     color:aliceblue;
     background: var(--gradient);
     border: none;
-    padding: 10px 35px; 
+    padding: 0.7vw 3vw; 
     border-radius: 35px;
     cursor: pointer;
 
@@ -99,10 +107,13 @@ button{
 
 
     font-weight: 500; 
-    font-size: 1rem;
+    font-size: 1.6vw;
 
     
 }
+
+
+
 
 button a{
     color:aliceblue;
@@ -155,13 +166,19 @@ svg path{
     height: 40%;
 }
 
+/*-------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------------------*/
+
+
 
 /*----------------head----------------*/
 
 header{
     height: 60px;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     top: 0;
     z-index: 999;
 
@@ -178,6 +195,7 @@ header{
     rgba(255, 255, 255, 0.1));
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
 
     
 }
@@ -188,6 +206,56 @@ nav ul{
     gap: 65px;
 
 }
+
+/*_______________________________________________sidebar______________________________________*/
+
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 350px;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(7px);
+    box-shadow: -10px 0 5px rgba(0, 0, 0, 0.1); 
+
+}
+
+.sidebar li:first-child{
+    margin-top: 70px;
+}
+.sidebar a{
+    padding-left: 20px; 
+}
+
+
+@media(min-width: 800px){
+    .showOnMobile{
+        display: none; 
+    }
+
+}
+
+@media(max-width: 800px){
+    .showOnLap{
+        display: none; 
+    }
+
+    
+}
+
+
+
+
+
+
+
+/*_________________________________________________________________________________________________*/
 
 .logo{
     width: 120px;
@@ -413,7 +481,9 @@ nav ul{
 }
 
 
-
+.features h2{
+    font-size: 3vw;
+}
 
 
 .features{
@@ -425,8 +495,13 @@ nav ul{
     margin-bottom: 80px;
 
     display: grid;
-    gap: 10px;
+    gap: 1vw;
     
+    
+
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+
     grid-template-areas: 
     "item1 item1 item1 item1 item1 item1 item2 item2"
     "item3 item3 item4 item4 item4 item4 item5 item5"
@@ -437,6 +512,27 @@ nav ul{
     
 
 }
+
+@media(max-width:900px){
+
+    .features{
+        
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+        "item1 item1 item1 item1"
+        "item2 item2 item2 item2"
+        "item3 item3 item6 item6"
+        "item4 item4 item5 item5"
+        "item4 item4 item5 item5"
+        "item7 item7 item7 item8"
+        "item9 item9 item10 item10"    ;
+    }
+
+
+}
+
+
+
 
 .feature{
     border-radius: 20px;
@@ -538,6 +634,8 @@ nav ul{
     
     background: linear-gradient(0deg, #9b62cf,#4db9da);
 
+    
+
     padding: 0px 60px;
     transition: all 0.4s ease;
 }
@@ -551,7 +649,7 @@ nav ul{
 
 .feature4 h1{
     font-weight: 800;
-    font-size: 6rem;
+    font-size: 6vw;
     background: linear-gradient(0deg, #5187c9 0%,#8debc5 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -736,7 +834,7 @@ nav ul{
 
 
 
-/*<!-------------------------------------------------------------projectile2----------------------------------> */
+/*<!-------------------------------------------------------------plans----------------------------------> */
 
 
 .title-plan{
@@ -780,7 +878,7 @@ nav ul{
     border: 0.7px solid #2ECC71;/*you were here last time*/
     border-radius: 18px;
     height: 90%;
-    width: 32%;
+    width: 350px;
     padding: 0px 20px;
     padding-bottom: 20px;
 
@@ -923,6 +1021,8 @@ footer{
     background-position: center;
     background-size: cover;
 
+    position: relative;
+
 
 
     height: 50vh;
@@ -964,6 +1064,10 @@ footer{
     justify-content: center;
     align-items: end;
 
+    position: absolute;
+    bottom: 20px;
+    right: 70vw;
+
 
 }
 
@@ -995,9 +1099,9 @@ footer h3{
     align-items: end;
     height: 100%;
 
-    position: relative;
+    position: absolute;
     bottom: 10px;
-    left: 150px;
+    right: 30px;
 
 
     
@@ -1009,8 +1113,8 @@ footer h3{
     display: flex;
     flex-flow: column wrap;
 
-    position: relative;
-    right: 30px;
+    position: absolute;
+    left: 30px;
 
 
 }
@@ -1027,6 +1131,8 @@ footer a:hover{
     align-items: center;
 
     padding: 10px 30px;
+
+    
 
 
     
