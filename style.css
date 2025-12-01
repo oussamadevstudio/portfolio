@@ -1,4 +1,3 @@
-
 /*------------general-------------*/
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
@@ -36,7 +35,7 @@ html{
 
 h1{
     color: #f4f8ff;
-    font-size: 6.4vw;
+    font-size: clamp(2rem, 6vw, 4rem);
 
     text-align: center;
 }
@@ -44,14 +43,14 @@ h1{
 
 h2{
     color: #dce6ff;
-    font-size: 3.2vw;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
 
     text-align: center;
 }
 
 h3{
     color: #bfc9e6;
-    font-size: 1.8vw;
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
     line-height: 1.4;
 
     text-align: center;
@@ -61,7 +60,7 @@ h3{
 p{
     font-family: "Poppins", sans-serif;
     font-weight: 500;
-    font-size: 1.07vw;
+    font-size: clamp(0.875rem, 1.07vw, 1.1rem);
 }
 
 
@@ -99,7 +98,7 @@ button{
     color:aliceblue;
     background: var(--gradient);
     border: none;
-    padding: 0.7vw 3vw; 
+    padding: clamp(0.5rem, 0.7vw, 1rem) clamp(1.5rem, 3vw, 2.5rem); 
     border-radius: 35px;
     cursor: pointer;
 
@@ -107,9 +106,19 @@ button{
 
 
     font-weight: 500; 
-    font-size: 1.6vw;
+    font-size: clamp(0.875rem, 1.6vw, 1.2rem);
 
     
+}
+
+@media(max-width: 800px){
+    button{
+        padding: 1.8vw 25vw;
+        font-size: 4.7vw;
+        white-space: nowrap;
+        
+
+    }
 }
 
 
@@ -190,6 +199,7 @@ header{
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding: 0 20px;
 
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), 
     rgba(255, 255, 255, 0.1));
@@ -203,7 +213,7 @@ header{
 nav ul{
     display: flex;
     flex-wrap: wrap;
-    gap: 65px;
+    gap: clamp(30px, 5vw, 65px);
 
 }
 
@@ -215,14 +225,20 @@ nav ul{
     top: 0;
     right: 0;
     display: none;
+    z-index: 3000;
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    width: 350px;
+    width: min(350px, 90vw);
     height: 100vh;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
-    backdrop-filter: blur(7px);
+    background: linear-gradient(
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.1)
+  );
+  backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
     box-shadow: -10px 0 5px rgba(0, 0, 0, 0.1); 
+    gap : 30px;
 
 }
 
@@ -233,6 +249,37 @@ nav ul{
     padding-left: 20px; 
 }
 
+
+@media(min-width: 490px){
+    .sided{
+        visibility: hidden;
+        height: 1px;
+    }
+
+    
+}
+
+
+
+@media(max-width: 520px){
+    
+    .open {
+        display: none;
+    }
+    ul .sided{
+       margin-left: 15vw;
+        
+    }
+
+    ul .sided img{
+        width: clamp(70px, 40vw, 300px);
+        height: auto; 
+    }
+
+    .sidebar{
+        width: 100vw;
+    }
+}
 
 @media(min-width: 800px){
     .showOnMobile{
@@ -247,6 +294,10 @@ nav ul{
     }
 
     
+}
+
+.showOnMobile{
+    margin-left: 25vw;
 }
 
 
@@ -264,6 +315,8 @@ nav ul{
     
 
 }
+
+
 
 
 
@@ -303,6 +356,8 @@ nav ul{
     grid-area: 1/1;
     z-index: 10;
 
+   
+
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -326,12 +381,12 @@ nav ul{
 .aboutus{
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: clamp(20px, 5vw, 50px);
     justify-content: space-evenly;
     align-items: center;
 
-    height: 80vh;
-    padding: 60px 60px;
+    min-height: 80vh;
+    padding: clamp(30px, 5vw, 60px);
     
 }
 
@@ -339,6 +394,8 @@ nav ul{
     
     text-align: left;
     max-width: 500px;
+    flex: 1;
+    min-width: 280px;
 
 }
 
@@ -360,7 +417,7 @@ nav ul{
 
 
 .photo img{
-    width: 400px; 
+    width: clamp(250px, 90vw, 400px); 
     height: auto;
     border-radius: 80px 10px;
 }
@@ -376,14 +433,15 @@ nav ul{
 .services{
 
     background: #f7f7f7;
-    height: 80vh;
+    min-height: 80vh;
 
 
     display:flex;
     flex-flow: column wrap;
     justify-content: center;
     align-content: space-evenly;
-    gap: 40px;
+    gap: clamp(20px, 5vw, 40px);
+    padding: clamp(30px, 5vw, 60px);
 }
 
 
@@ -392,7 +450,7 @@ nav ul{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px;
+    gap: clamp(15px, 3vw, 20px);
 
 }
 
@@ -407,8 +465,10 @@ nav ul{
 
 .service{
     max-width: 350px;
+    flex: 1;
+    min-width: 250px;
 
-    padding: 20px;
+    padding: clamp(15px, 3vw, 20px);
     border: 2px solid #5ca7f77c;
     border-radius: 30px;
     
@@ -482,20 +542,20 @@ nav ul{
 
 
 .features h2{
-    font-size: 3vw;
+    font-size: clamp(20px, 3vw, 100px);
 }
 
 
 .features{
-    height: 100vh;
+    min-height: 100vh;
 
     
-    padding: 40px 60px;
+    padding: clamp(20px, 5vw, 40px);
 
-    margin-bottom: 80px;
+    margin-bottom: clamp(40px, 5vw, 80px);
 
     display: grid;
-    gap: 1vw;
+    gap: clamp(0.5vw, 2vw, 1vw);
     
     
 
@@ -511,6 +571,18 @@ nav ul{
     
     
 
+}
+
+@media(max-width:1200px){
+    .features{
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas: 
+        "item1 item1 item1 item2 item2 item2"
+        "item3 item3 item4 item4 item5 item5"
+        "item6 item6 item4 item4 item5 item5"
+        "item7 item7 item7 item8 item8 item9"
+        "item10 item10 item10 item10 item10 item10";
+    }
 }
 
 @media(max-width:900px){
@@ -531,12 +603,45 @@ nav ul{
 
 }
 
+@media(max-width:600px){
+    .features{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "item1 item1"
+        "item2 item2"
+        "item3 item3"
+        "item4 item4"
+        "item5 item5"
+        "item6 item6"
+        "item7 item7"
+        "item8 item8"
+        "item9 item9"
+        "item10 item10";
+    }
+}
+
 
 
 
 .feature{
     border-radius: 20px;
-    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: clamp(15px, 3vw, 30px);
+    overflow: hidden;
+}
+
+.feature h1,
+.feature h2,
+.feature h3 {
+    width: 100%;
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 
@@ -552,6 +657,7 @@ nav ul{
     flex-wrap: wrap;
     justify-content: center; 
     align-items:center;
+    text-align: center;
 
     background: linear-gradient(90deg, #5187c9 0%,#8debc5 100%);
                                                                                               
@@ -579,8 +685,10 @@ nav ul{
     flex-wrap: wrap;
     justify-content: center;    
     align-items:center;
+    text-align: center;
 
-    background: linear-gradient(90deg, #ffc9fe 0%, #ff8cc9 70%, #ab278a 100% );}
+    background: linear-gradient(90deg, #ffc9fe 0%, #ff8cc9 70%, #ab278a 100% );
+}
 
 
 
@@ -603,6 +711,7 @@ nav ul{
     flex-wrap: wrap;
     justify-content: center;    
     align-items:center;
+    text-align: center;
     
     background: linear-gradient(180deg, #8accf2 0%, #63dde6 70%, #73d1eb 100%);
 }
@@ -631,29 +740,29 @@ nav ul{
     flex-flow: column wrap; 
     justify-content: center;    
     align-items:center;
+    text-align: center;
     
     background: linear-gradient(0deg, #9b62cf,#4db9da);
 
-    
-
-    padding: 0px 60px;
+    padding: clamp(15px, 3vw, 60px);
     transition: all 0.4s ease;
+    
 }
 
 .feature4:hover{
     transform: scale(1.02);
     background: linear-gradient(0deg, #9a62cfd9, #4db9dabb);
-    
-
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
 .feature4 h1{
     font-weight: 800;
-    font-size: 6vw;
+    font-size: clamp(2rem, 10vw, 6vw);
     background: linear-gradient(0deg, #5187c9 0%,#8debc5 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    width: 100%;
 }
 
 
@@ -677,6 +786,7 @@ nav ul{
     flex-wrap: wrap;
     justify-content: center;    
     align-items:center;
+    text-align: center;
     
     background: #35293d;
 }
@@ -702,6 +812,7 @@ nav ul{
     flex-wrap: wrap;
     justify-content: center;    
     align-items:center;
+    text-align: center;
     
     background: #1c1b1c;
 }
@@ -727,6 +838,7 @@ nav ul{
     flex-wrap: wrap;
     justify-content: center;    
     align-items:center;
+    text-align: center;
     
     background: linear-gradient(180deg, #8accf2 0%, #63dde6 70%, #73d1eb 100%);
 }
@@ -752,10 +864,11 @@ nav ul{
     flex-wrap: wrap;
     justify-content: center;    
     align-items:center;
+    text-align: center;
     
     background: linear-gradient(90deg, #bfb0d4 0%, #d7cfe3 70%, #e5dded 100%);
 
-    padding: 0px 16px;
+    padding: clamp(10px, 3vw, 16px);
 }
 
 
@@ -781,11 +894,23 @@ nav ul{
     flex-wrap: wrap;
     justify-content: center;    
     align-items:center;
+    text-align: center;
     
     background: linear-gradient(#ffc9fe 0%, #ff8cc9 100%);
 }
 
 
+@media(min-width: 900px){
+    .feature9 h2{
+        font-size: 15px;
+    }
+}
+
+@media(min-width: 1200px){
+    .feature10 h2{
+        font-size: 15px;
+    }
+}
 
 
 
@@ -805,8 +930,9 @@ nav ul{
     display:flex; 
     flex-wrap: wrap;
     justify-content: center;
-    
     align-items:center;
+    text-align: center;
+    
     background: linear-gradient(90deg, #ff8cc9 0%, #ab278a 100% );
 }
 
@@ -846,21 +972,21 @@ nav ul{
 
 .big-plan{
     background: #f7f7f7;
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: clamp(40px, 5vw, 90px);
+    padding-bottom: clamp(40px, 5vw, 90px);
 }
 
 
 
 
 .plans{
-    height: 100vh;
+    min-height: 100vh;
     background: #f7f7f7;
-    padding: 10px 60px;
+    padding: clamp(10px, 3vw, 60px);
 
     display: flex;
     flex-wrap: wrap;
-    gap: 0.1px;
+    gap: clamp(15px, 3vw, 20px);
     justify-content: space-around;
     align-items: center;
 }
@@ -869,7 +995,7 @@ nav ul{
 
 .plans p{
     color: gray;
-    font-size: 13px;
+    font-size: clamp(0.75rem, 2vw, 13px);
 }
 
 
@@ -877,12 +1003,13 @@ nav ul{
 .plan{
     border: 0.7px solid #2ECC71;/*you were here last time*/
     border-radius: 18px;
-    height: 90%;
-    width: 350px;
-    padding: 0px 20px;
+    min-height: 90vh;
+    width: clamp(250px, 90vw, 350px);
+    padding: clamp(15px, 3vw, 20px);
     padding-bottom: 20px;
 
-    
+    display: flex;
+    flex-direction: column;
     
     
 }
@@ -895,6 +1022,8 @@ nav ul{
 
 .plan h2{
     color: #2ECC71;
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
+    
     
 }
 
@@ -909,19 +1038,18 @@ i{
 
 .plan hr{
     opacity: 50%;
-    margin: 10px 10px;
+    margin: 15px 10px;
+    flex-shrink: 0;
 }
 
 
 
 .offre{
-    height: 50%;
-
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-
     padding-bottom: 10px;
     text-align: center;
 
@@ -936,13 +1064,27 @@ i{
 
 .qualitie{
     padding-left: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+@media(max-width: 768px){
+    .plan2{
+        order: 1;
+    }
+    .plan1{
+        order: 2;
+    }
+    .plan3{
+        order: 3;
+    }
 }
 
 
-
-
 .plan2{
-    height: 95%;
+    min-height: 90vh;
     border-top: 20px solid #2ECC71;
     border-bottom: 20px solid #2ECC71;
     border-left: 3.5px solid #2ECC71;
@@ -958,10 +1100,10 @@ i{
 /*<!-------------------------------------------------------------contact us----------------------------------> */
 
 .contactus{
-    height: 65vh;
+    min-height: 65vh;
 
     
-    padding: 60px 70px;
+    padding: clamp(30px, 5vw, 70px);
     
 }
 
@@ -972,14 +1114,14 @@ i{
     
     
 
-    padding-bottom: 50px;
+    padding-bottom: clamp(30px, 5vw, 50px);
 
 }
 
 
 .contactme{
     
-    padding: 40px 10px;
+    padding: clamp(20px, 3vw, 40px);
     
     display: flex;
     flex-flow: column wrap;
@@ -990,7 +1132,7 @@ i{
 }
 
 .contactme hr{
-    width: 60%;
+    width: clamp(60%, 80vw, 60%);
     margin-bottom: 24px;
 }
 
@@ -1023,16 +1165,14 @@ footer{
 
     position: relative;
 
-
-
-    height: 50vh;
+    min-height: 50vh;
 
     display: flex;
     flex-flow: column wrap;
     justify-content: space-around;
     align-items: center;
-    gap: 100px;
-    
+    gap: clamp(40px, 5vw, 100px);
+    padding: clamp(20px, 5vw, 60px);
 
     
 
@@ -1047,7 +1187,7 @@ footer{
     
     gap: 1px;
 
-    font-size: 25px;
+    font-size: clamp(18px, 4vw, 25px);
 
     
     
@@ -1066,13 +1206,50 @@ footer{
 
     position: absolute;
     bottom: 20px;
-    right: 70vw;
+    right: clamp(30px, 5vw, 70vw);
 
 
 }
 
+
+
 .social-media i{
     padding-bottom: 10px;
+    margin-bottom: 10px;
+    
+}
+
+@media(max-width: 500px){
+
+    .social-media i{
+        padding-bottom: 20px;
+        margin-bottom: 15px;
+    }
+
+    .h h3{
+        font-size: 12px;
+    }
+
+    .social-media{
+        justify-content: center;
+        align-items: end;
+
+        position: absolute;
+        bottom: 20px;
+        right: 15vw;
+
+
+    }
+
+    .social-media ul{
+
+        font-size: 40px;
+
+    
+    
+    
+    }
+
 }
 
 
@@ -1082,7 +1259,7 @@ footer h3{
 
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    font-size: 17px;
+    font-size: clamp(14px, 3vw, 17px);
     padding-left: 20px;
 
     
@@ -1101,7 +1278,7 @@ footer h3{
 
     position: absolute;
     bottom: 10px;
-    right: 30px;
+    right: clamp(15px, 3vw, 30px);
 
 
     
@@ -1114,7 +1291,7 @@ footer h3{
     flex-flow: column wrap;
 
     position: absolute;
-    left: 30px;
+    left: clamp(15px, 3vw, 30px);
 
 
 }
@@ -1130,7 +1307,7 @@ footer a:hover{
     justify-content: start;
     align-items: center;
 
-    padding: 10px 30px;
+    padding: 10px clamp(15px, 3vw, 30px);
 
     
 
@@ -1152,4 +1329,209 @@ footer a:hover{
 
 footer a{
     color:  #acd2fa;
+}
+
+
+/*----------- Mobile & Responsive Media Queries -----------*/
+
+/* Extra small devices (phones - below 480px) */
+@media(max-width: 480px) {
+    :root {
+        --gradient: linear-gradient(90deg, #9b62cf, #4db9da);
+    }
+    
+    .front {
+        padding-top: 60px;
+    }
+    
+    header {
+        height: 60px;
+        padding: 0 10px;
+    }
+    
+    nav ul {
+        gap: 20px;
+    }
+    
+    .hero {
+        height: 80vh;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+    
+    .aboutus {
+        flex-direction: column;
+        padding: 20px;
+        min-height: auto;
+        gap: 30px;
+    }
+    
+    .about-content {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .about-content h2 {
+        text-align: center;
+    }
+    
+    .photo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .photo img {
+        width: 90vw;
+        max-width: 300px;
+    }
+    
+    .services {
+        min-height: auto;
+        padding: 20px;
+    }
+    
+    .sub-services {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .service {
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+    }
+    
+    .features {
+        padding: 15px;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    
+    .feature1, .feature2, .feature3, .feature4, .feature5, 
+    .feature6, .feature7, .feature8, .feature9, .feature10 {
+        padding: 20px;
+        min-height: 150px;
+    }
+    
+    .plans {
+        padding: 15px;
+        min-height: auto;
+    }
+    
+    .plan {
+        width: 100%;
+        min-width: auto;
+        margin-bottom: 20px;
+    }
+    
+    .contactus {
+        padding: 20px;
+        min-height: auto;
+    }
+    
+    footer {
+        padding: 20px;
+        gap: 30px;
+    }
+}
+
+/* Small devices (tablets & large phones - 480px to 768px) */
+@media(max-width: 768px) and (min-width: 481px) {
+    .aboutus {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+    }
+    
+    .about-content {
+        text-align: center;
+    }
+    
+    .about-content h2 {
+        text-align: center;
+    }
+    
+    .photo {
+        width: 100%;
+    }
+    
+    .sub-services {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .service {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .feature4 h1 {
+        font-size: clamp(3rem, 10vw, 5rem);
+    }
+    
+    .plans {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .plan {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Medium devices (landscape tablets - 768px to 1024px) */
+@media(max-width: 1024px) {
+    .features h2 {
+        margin-bottom: 20px;
+    }
+    
+    .feature4 h1 {
+        font-size: clamp(4rem, 8vw, 6rem);
+    }
+}
+
+/* Ensure proper spacing on very small screens */
+@media(max-width: 360px) {
+    h1 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+    
+    h2 {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+    }
+    
+    h3 {
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+    }
+    
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Optimize for landscape orientation on mobile */
+@media(max-height: 500px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .front {
+        padding-top: 60px;
+    }
+    
+    .aboutus {
+        min-height: auto;
+        gap: 20px;
+    }
+    
+    .services {
+        min-height: auto;
+        gap: 20px;
+    }
 }
